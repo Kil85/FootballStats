@@ -25,28 +25,29 @@ public class FootballStats {// Wiekszosc funkcji trzeba dokonczyc i polaczyc z m
         PastGames Table = new PastGames();
         AllTeams Teams = new AllTeams();
         Menu menu = new Menu();
-       // int choice = 4;
-      //  if (args.length == 1) {
-      //      if (args[0].equals("1")) {
-         //       choice = 1;
-        //    }
-        //    if (args[0].equals("2")) {
-          //      choice = 2;
-        //    }
-        //    if (args[0].equals("3")) {
-         //       choice = 3;
-        //    }
-        //    if (args[0].equals("4")) {
-        //        choice = 4;
-       //    }
-     //   } else {
-       //     choice = listen.Interaction();
-    //    }
-    //    do {
-      //      menu.M(choice, Teams, Table);
-      //  } while (choice != 0);
-        java.awt.EventQueue.invokeLater(() -> {
-            new OpenWindow().setVisible(true);
-        });
+        int choice = 4;
+         if (args.length == 1) {
+            if (args[0].equals("1")) {
+                choice = 1;
+           }
+            if (args[0].equals("2")) {
+                choice = 2;
+           }
+            if (args[0].equals("3")) {
+                choice = 3;
+            }
+           if (args[0].equals("4")) {
+              choice = 4;
+           }
+        } else {
+           choice = listen.Interaction();
+        }
+        do {
+            menu.M(choice, Teams, Table);
+            choice = listen.Interaction();
+       } while (choice != 0);
+       // java.awt.EventQueue.invokeLater(() -> {
+         //   new OpenWindow().setVisible(true);
+      //  });
     }
 }

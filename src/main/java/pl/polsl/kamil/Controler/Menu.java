@@ -22,7 +22,6 @@ public class Menu {
      * @param Teams database of teams in applications
      * @param Table database of Games in applications
      */
-
     public void M(int Choise, AllTeams Teams, PastGames Table) {
         Speaking spk = new Speaking();
         Listening list = new Listening();

@@ -133,4 +133,13 @@ public class Team {
     void SetLeague(String league) {
         this.League = league;
     }
+    
+    /**
+     * Override method toString helps print name of the object
+     * @return Name of the object
+     */
+    @Override
+    public String toString(){
+        return this.Name;
+    }
 }

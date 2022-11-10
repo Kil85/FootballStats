@@ -1,5 +1,7 @@
 package pl.polsl.kamil.view;
 
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 import pl.polsl.kamil.Model.AllTeams;
 import pl.polsl.kamil.Model.Game;
 import pl.polsl.kamil.Model.PastGames;
@@ -40,11 +42,8 @@ public class Speaking {
      * @param T table of all teams that application knows
      */
     public void PrintAllTeams(AllTeams T) {
-        int index=1;
-        for(Team a : T.GetTeams()){
-            System.out.println(index + "." + a.GetName());
-            index++;
-        }
+        Consumer<Team> printTeam = n -> System.out.println(n); // Lambda expresion with a functional interface
+        T.GetTeams().forEach(printTeam);
     }
 
     /**
@@ -81,13 +80,13 @@ public class Speaking {
      * @param Table object that remembers all games included in application
      */
     public void PrintAllGames(PastGames Table) {
-      int index=1;
-        for(Game g: Table.GetGames()){
+        int index = 1;
+        for (Game g : Table.GetGames()) {
             System.out.println(index + ". " + g.GetFirstT() + " " + g.GetFirstS()
                     + " : " + g.GetFirstS() + " "
                     + g.GetSecondT());
         }
-        
+
     }
 
     /**

@@ -1,6 +1,7 @@
 package pl.polsl.kamil.Model;
 
 import java.util.Vector;
+import java.util.stream.Stream;
 import pl.polsl.kamil.view.Speaking;
 
 /**
@@ -71,5 +72,15 @@ public class AllTeams {
      */
     public Team GetTeam(int nr) {
         return this.Teams.elementAt(nr);
+    }
+    
+    /**
+     * Function that find all teams that play in given country
+     * @param country String given country
+     * @return All teams that play in given country
+     */
+    public Stream<Team> findTeamFromGivenCountry(String country){
+        Stream<Team> teamsStream = this.Teams.stream();
+        return  teamsStream.filter(t -> t.Country.equals(country));
     }
 }

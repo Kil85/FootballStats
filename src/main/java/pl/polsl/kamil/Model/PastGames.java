@@ -8,7 +8,7 @@ import pl.polsl.kamil.view.Speaking;
  * games in application
  *
  * @author Kamil Skupien
- * @version JDK 1.7
+ * @version 1.0
  */
 public class PastGames {
 Vector<Game> Games;
@@ -61,4 +61,7 @@ Vector<Game> Games;
     public Vector< Game> GetGames() {
         return this.Games;
     }
+    
+            
+    
 }
