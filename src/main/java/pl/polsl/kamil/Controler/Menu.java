@@ -11,7 +11,7 @@ import pl.polsl.kamil.view.Speaking;
  * Class that is responsible for working of whole menu of the aplication
  *
  * @author Kamil Skupien
- * @version JDK 1.7
+ * @version 1.0
  */
 public class Menu {
 
@@ -21,8 +21,9 @@ public class Menu {
      * @param Choise action choosed by user
      * @param Teams database of teams in applications
      * @param Table database of Games in applications
+     * @throws pl.polsl.kamil.Controler.MyException My own exception class
      */
-    public void M(int Choise, AllTeams Teams, PastGames Table) {
+    public void M(int Choise, AllTeams Teams, PastGames Table) throws MyException {
         Speaking spk = new Speaking();
         Listening list = new Listening();
         switch (Choise) {
@@ -65,8 +66,9 @@ public class Menu {
                 int Number = list.TakeInt();
                 break;
             default:
-                throw new AssertionError();
+                throw new MyException("Znak spoza skali");
         }
 
     }
 }
+

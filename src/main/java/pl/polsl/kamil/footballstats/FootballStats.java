@@ -2,6 +2,7 @@ package pl.polsl.kamil.footballstats;
 
 import pl.polsl.kamil.Controler.Listening;
 import pl.polsl.kamil.Controler.Menu;
+import pl.polsl.kamil.Controler.MyException;
 import pl.polsl.kamil.Model.AllTeams;
 import pl.polsl.kamil.Model.PastGames;
 import pl.polsl.kamil.Window.OpenWindow;
@@ -20,7 +21,7 @@ public class FootballStats {// Wiekszosc funkcji trzeba dokonczyc i polaczyc z m
      *
      * @param args Arguments form consol
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MyException {
         Listening listen = new Listening();
         PastGames Table = new PastGames();
         AllTeams Teams = new AllTeams();

@@ -33,7 +33,7 @@ public class PastGamesTests {
      * @param howMany Tells how many iteraton of a loop test's gonna to do
      */
     @ParameterizedTest
-    @CsvSource({" ManchesterCity, Chelsea, 2, 0", "Arsenal, Liverpool, 2, 1, 5"})
+    @CsvSource({" ManchesterCity, Chelsea, 2, 0, 6", "Arsenal, Liverpool, 2, 1, 5"})
     public void AddGameTest(String TeamA, String TeamB, int aScore, int bScore, int howMany) {
         for (int i = 0; i < howMany; i++) {
             Team aTeam = new Team(TeamA);

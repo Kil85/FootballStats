@@ -4,7 +4,7 @@ package pl.polsl.kamil.Model;
  * Class that holds informations about a team
  *
  * @author Kamil Skupien
- * @version JDK 1.7
+ * @version 1.1
  */
 public class Team {
 
@@ -31,6 +31,11 @@ public class Team {
         SetLeague(League);
     }
 
+    /**
+     * Constructor that only needs a name of the team rest will be unknown
+     *
+     * @param name name of the team
+     */
     public Team(String name) {
         SetName(name);
         SetNickname("Nieznany");
@@ -39,6 +44,13 @@ public class Team {
         SetLeague("Nieznana");
     }
 
+    /**
+     * Constructor that only needs a name and a country of the team rest will be
+     * unknown
+     *
+     * @param name name of the team
+     * @param country country which club come from
+     */
     public Team(String name, String country) {
         SetName(name);
         SetNickname("Nieznany");
@@ -47,22 +59,6 @@ public class Team {
         SetLeague("Nieznana");
     }
 
-//    public Team(String name, String...rest){
-//        SetName(name);
-//        String AboutTeam[]= new String [4];
-//        for (int i = 0; i < 4; i++) {
-//            if(i<=rest.length){
-//                AboutTeam[i]=rest[i];
-//            }
-//            else{
-//                AboutTeam[i]="unknown";
-//            }
-//        }
-//        SetNickname(AboutTeam[0]);
-//        SetCountry(AboutTeam[1]);
-//        SetCity(AboutTeam[2]);
-//        SetLeague(AboutTeam[3]);
-//    }
     /**
      * Constructor that coppies information from given object
      *
