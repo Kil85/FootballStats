@@ -25,25 +25,6 @@ Vector<Game> Games;
         Games= new Vector(10);
         Free = 0;
     }
-
-    /**
-     * Method that chceck if there is a free space in Games array and if it is
-     * add object G
-     *
-     * @param G object of Game class that is tried to be add to the array
-     */
-    public void AddGame(Game G) {
-        if (Free + 1 >= Full) {
-            Speaking speak = new Speaking();
-            speak.TableIsFull();
-            return;
-        }
-        //this.Games[this.Free] = G;
-        this.Games.elementAt(this.Free);
-                
-        this.Free++;
-    }
-
     /**
      * Gets number of objects in Game array
      *
@@ -61,7 +42,22 @@ Vector<Game> Games;
     public Vector< Game> GetGames() {
         return this.Games;
     }
-    
-            
-    
+    /**
+     * Method that chceck if there is a free space in Games array and if it is
+     * add object G
+     *
+     * @param G object of Game class that is tried to be add to the array
+     */
+    public void AddGame(Game G) {
+        if (Free + 1 >= Full) {
+
+            Speaking speak = new Speaking();
+            speak.TableIsFull();
+            return;
+        }
+        //this.Games[this.Free] = G;
+
+       // this.Games.elementAt(this.Free);
+        this.Free++;
+    }
 }

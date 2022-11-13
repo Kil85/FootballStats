@@ -31,6 +31,38 @@ public class Team {
         SetLeague(League);
     }
 
+    public Team(String name) {
+        SetName(name);
+        SetNickname("Nieznany");
+        SetCountry("Nieznany");
+        SetCity("Nieznane");
+        SetLeague("Nieznana");
+    }
+
+    public Team(String name, String country) {
+        SetName(name);
+        SetNickname("Nieznany");
+        SetCountry(country);
+        SetCity("Nieznane");
+        SetLeague("Nieznana");
+    }
+
+//    public Team(String name, String...rest){
+//        SetName(name);
+//        String AboutTeam[]= new String [4];
+//        for (int i = 0; i < 4; i++) {
+//            if(i<=rest.length){
+//                AboutTeam[i]=rest[i];
+//            }
+//            else{
+//                AboutTeam[i]="unknown";
+//            }
+//        }
+//        SetNickname(AboutTeam[0]);
+//        SetCountry(AboutTeam[1]);
+//        SetCity(AboutTeam[2]);
+//        SetLeague(AboutTeam[3]);
+//    }
     /**
      * Constructor that coppies information from given object
      *
@@ -133,13 +165,14 @@ public class Team {
     void SetLeague(String league) {
         this.League = league;
     }
-    
+
     /**
      * Override method toString helps print name of the object
+     *
      * @return Name of the object
      */
     @Override
-    public String toString(){
+    public String toString() {
         return this.Name;
     }
 }

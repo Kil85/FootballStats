@@ -4,7 +4,7 @@ package pl.polsl.kamil.Model;
  * Class that holds informations about a game
  *
  * @author Kamil Skupien
- * @version JDK 1.7
+ * @version 1.0
  */
 public class Game {
 

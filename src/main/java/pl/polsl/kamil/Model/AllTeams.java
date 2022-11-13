@@ -79,7 +79,7 @@ public class AllTeams {
      * @param country String given country
      * @return All teams that play in given country
      */
-    public Stream<Team> findTeamFromGivenCountry(String country){
+    public Stream<Team> findTeamsFromGivenCountry(String country){
         Stream<Team> teamsStream = this.Teams.stream();
         return  teamsStream.filter(t -> t.Country.equals(country));
     }
