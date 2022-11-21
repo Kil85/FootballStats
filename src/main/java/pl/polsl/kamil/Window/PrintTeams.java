@@ -10,6 +10,8 @@ import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionListener;
+import pl.polsl.kamil.Model.AllTeams;
+import pl.polsl.kamil.Model.PastGames;
 
 /**
  *
@@ -17,26 +19,28 @@ import javax.swing.event.ListSelectionListener;
  */
 public class PrintTeams extends javax.swing.JFrame {
 
-private DefaultListModel listModel;
-    /**
-     * Creates new form PrintTeams
-     */
-    public PrintTeams() 
-    {
-       
+    private DefaultListModel listModel;
+
+    private PastGames table;
+    private AllTeams teams;
+
+    public PrintTeams(PastGames Table, AllTeams Teams) {
+        this.table = Table;
+        this.teams = Teams;
+
         initComponents();
-         listModel = new DefaultListModel();
+        listModel = new DefaultListModel();
         listModel.addElement("Alan Sommerer");
         listModel.addElement("Alison Huml");
         listModel.addElement("Kathy Walrath");
         listModel.addElement("Lisa Friendly");
         listModel.addElement("Mary Campione");
         listModel.addElement("Sharon Zakhour");
-        jList1=new javax.swing.JList<>(listModel);
+        jList1 = new javax.swing.JList<>(listModel);
         jList1.setModel(jList1.getModel());
         jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jList1.setToolTipText("");
-            //TODO
+        //TODO
     }
 
     /**
@@ -51,7 +55,7 @@ private DefaultListModel listModel;
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,10 +66,10 @@ private DefaultListModel listModel;
 
         jLabel1.setText("Wszystkie Druzyny");
 
-        jButton1.setText("back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        backButton.setText("back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                backButtonActionPerformed(evt);
             }
         });
 
@@ -77,7 +81,7 @@ private DefaultListModel listModel;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                        .addComponent(backButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -97,26 +101,25 @@ private DefaultListModel listModel;
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(backButton)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+        java.awt.EventQueue.invokeLater(()->{
+            new OpenWindow(table, teams).setVisible(true);
+        });
+    }//GEN-LAST:event_backButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -133,18 +136,14 @@ private DefaultListModel listModel;
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(PrintTeams.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PrintTeams().setVisible(true);
-            }
-        });
+
+   
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton backButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;

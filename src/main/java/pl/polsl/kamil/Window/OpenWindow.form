@@ -40,11 +40,11 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jButton1" max="32767" attributes="0"/>
-                  <Component id="jButton2" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jButton3" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jButton4" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jButton5" alignment="0" max="32767" attributes="0"/>
+                  <Component id="addTeamButton" max="32767" attributes="0"/>
+                  <Component id="addGameButton" alignment="0" max="32767" attributes="0"/>
+                  <Component id="printTeamsButton" alignment="0" max="32767" attributes="0"/>
+                  <Component id="printGamesButton" alignment="0" max="32767" attributes="0"/>
+                  <Component id="exitButton" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="240" max="32767" attributes="0"/>
           </Group>
@@ -61,56 +61,59 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="48" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="addTeamButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+              <Component id="addGameButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+              <Component id="printTeamsButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+              <Component id="printGamesButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+              <Component id="exitButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="99" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="addTeamButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Dodaj druzyne"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addTeamButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="addGameButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Dodaj mecz"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addGameButtonActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="printTeamsButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Wyswietl druzyny"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="printTeamsButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
+    <Component class="javax.swing.JButton" name="printGamesButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Wyswietl mecze"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="printGamesButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton5">
+    <Component class="javax.swing.JButton" name="exitButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Wyjscie"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exitButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">

@@ -4,17 +4,22 @@
  */
 package pl.polsl.kamil.Window;
 
+import pl.polsl.kamil.Model.AllTeams;
+import pl.polsl.kamil.Model.PastGames;
+
 /**
  *
  * @author kil85
  */
 public class OpenWindow extends javax.swing.JFrame {
 
-    /**
-     * Creates new form OpenWindow
-     */
-    public OpenWindow() {
+    private PastGames table;
+    private AllTeams teams;
+
+    public OpenWindow(PastGames Table, AllTeams Teams) {
         initComponents();
+        this.table = Table;
+        this.teams = Teams;
     }
 
     /**
@@ -28,11 +33,11 @@ public class OpenWindow extends javax.swing.JFrame {
 
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
         jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        addTeamButton = new javax.swing.JButton();
+        addGameButton = new javax.swing.JButton();
+        printTeamsButton = new javax.swing.JButton();
+        printGamesButton = new javax.swing.JButton();
+        exitButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         jRadioButtonMenuItem1.setSelected(true);
@@ -43,33 +48,38 @@ public class OpenWindow extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Dodaj druzyne");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        addTeamButton.setText("Dodaj druzyne");
+        addTeamButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                addTeamButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Dodaj mecz");
-
-        jButton3.setText("Wyswietl druzyny");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        addGameButton.setText("Dodaj mecz");
+        addGameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                addGameButtonActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Wyswietl mecze");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        printTeamsButton.setText("Wyswietl druzyny");
+        printTeamsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                printTeamsButtonActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Wyjscie");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        printGamesButton.setText("Wyswietl mecze");
+        printGamesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                printGamesButtonActionPerformed(evt);
+            }
+        });
+
+        exitButton.setText("Wyjscie");
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButtonActionPerformed(evt);
             }
         });
 
@@ -82,11 +92,11 @@ public class OpenWindow extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(250, 250, 250)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(addTeamButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addGameButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(printTeamsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(printGamesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(240, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -99,45 +109,59 @@ public class OpenWindow extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
-                .addComponent(jButton1)
+                .addComponent(addTeamButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(addGameButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(printTeamsButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(printGamesButton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5)
+                .addComponent(exitButton)
                 .addContainerGap(99, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       // AddTeam window =new AddTeam();
-     //  setVisible(false);
+    private void addTeamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTeamButtonActionPerformed
+
+        dispose();
         java.awt.EventQueue.invokeLater(() -> {
-            new AddTeam().setVisible(true);
+            new AddTeam(table, teams).setVisible(true);
         });
-        //setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_addTeamButtonActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-       dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
+        dispose();
+    }//GEN-LAST:event_exitButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       java.awt.EventQueue.invokeLater(() -> {
-            new PrintTeams().setVisible(true);
-        });
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void printTeamsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printTeamsButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        dispose();
+
         java.awt.EventQueue.invokeLater(() -> {
-            new PrintGames().setVisible(true);
-            });
-    }//GEN-LAST:event_jButton4ActionPerformed
+            new PrintTeams(table, teams).setVisible(true);
+        });
+    }//GEN-LAST:event_printTeamsButtonActionPerformed
+
+    private void printGamesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printGamesButtonActionPerformed
+
+        dispose();
+
+        java.awt.EventQueue.invokeLater(() -> {
+            new PrintGames(table, teams).setVisible(true);
+        });
+
+    }//GEN-LAST:event_printGamesButtonActionPerformed
+
+    private void addGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addGameButtonActionPerformed
+        dispose();
+
+        java.awt.EventQueue.invokeLater(() -> {
+            new AddGame(table, teams).setVisible(true);
+        });
+    }//GEN-LAST:event_addGameButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,21 +191,20 @@ public class OpenWindow extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new OpenWindow().setVisible(true);
-        });
+//        java.awt.EventQueue.invokeLater(() -> {
+////            new OpenWindow().setVisible(true);
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton addGameButton;
+    private javax.swing.JButton addTeamButton;
+    private javax.swing.JButton exitButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
+    private javax.swing.JButton printGamesButton;
+    private javax.swing.JButton printTeamsButton;
     // End of variables declaration//GEN-END:variables
-
 
 }
