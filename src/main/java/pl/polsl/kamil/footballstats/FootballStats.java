@@ -5,6 +5,7 @@ import pl.polsl.kamil.Controler.Menu;
 import pl.polsl.kamil.Controler.MyException;
 import pl.polsl.kamil.Model.AllTeams;
 import pl.polsl.kamil.Model.PastGames;
+import pl.polsl.kamil.Model.Team;
 import pl.polsl.kamil.Window.OpenWindow;
 
 /**
@@ -27,6 +28,10 @@ public class FootballStats {// Wiekszosc funkcji trzeba dokonczyc i polaczyc z m
         AllTeams Teams = new AllTeams();
         Menu menu = new Menu();
         int choice = 4;
+        Teams.AddTeam(new Team("Manchester City"));
+        Teams.AddTeam(new Team("Chelsea"));
+        Teams.AddTeam(new Team("Real Madrid"));
+        
 //         if (args.length == 1) {
 //            if (args[0].equals("1")) {
 //                choice = 1;

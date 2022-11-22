@@ -1,5 +1,6 @@
 package pl.polsl.kamil.Model;
 
+import java.util.Vector;
 import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -64,6 +65,27 @@ public class AllTeamsTests {
         T.AddTeam(teamB);
         T.AddTeam(teamC);
         assertEquals(Result, T.findTeamsFromGivenCountry(givenCountry).count());
+    }
+    
+    
+    @ParameterizedTest
+    @CsvSource({"A, B, C"})
+    public void namesOfTeamsTest(String teamA, String teamB, String teamC){
+        
+        Vector<String>rightAnswer = new Vector<String>();
+        rightAnswer.addElement(teamC);
+        rightAnswer.addElement(teamB);
+        rightAnswer.addElement(teamA);
+        
+        Team cTeam= new Team(teamC);
+        Team bTeam= new Team(teamB);
+        Team aTeam= new Team(teamA);
+        
+        T.AddTeam(cTeam);
+        T.AddTeam(bTeam);
+        T.AddTeam(aTeam);
+        
+        assertEquals(rightAnswer, T.namesOfTeams());
     }
 
 }

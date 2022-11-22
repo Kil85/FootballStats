@@ -83,4 +83,18 @@ public class AllTeams {
         Stream<Team> teamsStream = this.Teams.stream();
         return  teamsStream.filter(t -> t.Country.equals(country));
     }
+    
+    /**
+     * Function that returns Vector of teams' names
+     * @return Vector of teams' names
+     */
+    public Vector<String> namesOfTeams(){
+        
+        Vector<String> resoult= new Vector<String>();
+        for(Team a:this.Teams){
+            resoult.addElement(a.Name);
+        }
+        return resoult;
+    }
+    
 }
