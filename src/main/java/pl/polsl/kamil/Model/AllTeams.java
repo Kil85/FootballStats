@@ -74,6 +74,14 @@ public class AllTeams {
         return this.Teams.elementAt(nr);
     }
     
+    public Team GetTeam(String name){
+        for(Team a: this.Teams){
+            if(a.Name.equals(name))
+                return a;
+        }
+        return null;
+    }
+    
     /**
      * Function that find all teams that play in given country
      * @param country String given country

@@ -22,27 +22,19 @@ public class PrintTeams extends javax.swing.JFrame {
 
     private DefaultListModel listModel;
 
-    private  PastGames table;
-    private  AllTeams teams;
+    private PastGames table;
+    private AllTeams teams;
 
     public PrintTeams(PastGames Table, AllTeams Teams) {
         this.table = Table;
         this.teams = Teams;
 
         initComponents();
-      
-        
-        
+
         this.listOfTeams = new JList(teams.namesOfTeams());
         jScrollPane2.setViewportView(listOfTeams);
-       
-        
-        Speaking s = new Speaking();
-        s.PrintAllTeams(teams);
-        
-      
-    }
 
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -107,40 +99,38 @@ public class PrintTeams extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         dispose();
-        
-        java.awt.EventQueue.invokeLater(()->{
+
+        java.awt.EventQueue.invokeLater(() -> {
             new OpenWindow(table, teams).setVisible(true);
         });
     }//GEN-LAST:event_backButtonActionPerformed
 
-    
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PrintTeams.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PrintTeams.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PrintTeams.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PrintTeams.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
- 
-        
-   
-
-    }
+//    /**
+//     * @param args the command line arguments
+//     */
+//    public static void main(String args[]) {
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(PrintTeams.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(PrintTeams.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(PrintTeams.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(PrintTeams.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//
+// 
+//        System.out.println("lol");
+//   
+//
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;

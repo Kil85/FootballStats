@@ -83,7 +83,7 @@ public class Speaking {
         int index = 1;
         for (Game g : Table.GetGames()) {
             System.out.println(index + ". " + g.GetFirstT() + " " + g.GetFirstS()
-                    + " : " + g.GetFirstS() + " "
+                    + " : " + g.GetSecondS() + " "
                     + g.GetSecondT());
         }
 

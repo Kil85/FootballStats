@@ -56,7 +56,7 @@ Vector<Game> Games;
             return;
         }
         //this.Games[this.Free] = G;
-
+        this.Games.add(G);
        // this.Games.elementAt(this.Free);
         this.Free++;
     }

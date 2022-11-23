@@ -191,18 +191,25 @@ public class AddTeam extends javax.swing.JFrame {
         String country = countryField.getText();
         String league = leagueField.getText();
 
-        if (name.length()==0 || surname.length()==0 || city.length()==0 || country.length()==0
-                || league.length()==0) {
-            
-            this.jDialog1=new JDialog(this,"Error");
+
+
+        if (name.length() == 0 || surname.length() == 0 || city.length() == 0 || country.length() == 0
+                || league.length() == 0) {
+
+            this.jDialog1 = new JDialog(this, "Error");
             JLabel l = new JLabel("     Nie wszystkie pola sa zapelnione");
-            jDialog1.setSize(240,80);
+            jDialog1.setSize(240, 80);
             jDialog1.add(l);
             jDialog1.setVisible(true);
-        }
-        else{
-        Team t = new Team(nameField.getText());
-        this.teams.AddTeam(t);
+        } else {
+            Team t = new Team(nameField.getText());
+            this.teams.AddTeam(t);
+
+            this.jDialog1 = new JDialog(this, "OK");
+            JLabel l = new JLabel("     Dodano zespol " + name);
+            jDialog1.setSize(240, 80);
+            jDialog1.add(l);
+            jDialog1.setVisible(true);
         }
 
     }//GEN-LAST:event_addButtonActionPerformed
