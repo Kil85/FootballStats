@@ -4,28 +4,28 @@
  */
 package pl.polsl.kamil.Window;
 
-import java.awt.BorderLayout;
-import javax.swing.DefaultListModel;
 import javax.swing.JList;
-import javax.swing.JScrollPane;
-import javax.swing.ListSelectionModel;
-import javax.swing.event.ListSelectionListener;
 import pl.polsl.kamil.Model.AllTeams;
-import pl.polsl.kamil.Model.PastGames;
-import pl.polsl.kamil.view.Speaking;
+import pl.polsl.kamil.Model.AllGames;
 
 /**
+ * Class responsible for showing game adding window
  *
- * @author kil85
+ * @author Kamil Skupien
+ * @version 1.0
  */
 public class PrintTeams extends javax.swing.JFrame {
 
-    private DefaultListModel listModel;
-
-    private PastGames table;
+    private AllGames table;
     private AllTeams teams;
 
-    public PrintTeams(PastGames Table, AllTeams Teams) {
+    /**
+     * Main constructor that saves table and teams objects and creates jList
+     *
+     * @param Table object that holds whole game table
+     * @param Teams object that holds all teams that appears in application
+     */
+    public PrintTeams(AllGames Table, AllTeams Teams) {
         this.table = Table;
         this.teams = Teams;
 
@@ -97,40 +97,19 @@ public class PrintTeams extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Method that close current window and opens menu window
+     *
+     * @param evt event of pushing that button
+     */
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         dispose();
 
         java.awt.EventQueue.invokeLater(() -> {
-            new OpenWindow(table, teams).setVisible(true);
+            new MainWindow(table, teams).setVisible(true);
         });
     }//GEN-LAST:event_backButtonActionPerformed
 
-//    /**
-//     * @param args the command line arguments
-//     */
-//    public static void main(String args[]) {
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(PrintTeams.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(PrintTeams.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(PrintTeams.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(PrintTeams.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//
-// 
-//        System.out.println("lol");
-//   
-//
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;

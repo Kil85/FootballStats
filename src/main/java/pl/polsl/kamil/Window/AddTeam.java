@@ -1,25 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package pl.polsl.kamil.Window;
+
 
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import pl.polsl.kamil.Model.AllTeams;
-import pl.polsl.kamil.Model.PastGames;
+import pl.polsl.kamil.Model.AllGames;
 import pl.polsl.kamil.Model.Team;
 
 /**
+ * Class responsible for showing window responsible for adding teams
  *
- * @author kil85
+ * @author Kamil Skupien
+ * @version 1.0
  */
 public class AddTeam extends javax.swing.JFrame {
 
-    private PastGames table;
+    private AllGames table;
     private AllTeams teams;
 
-    public AddTeam(PastGames Table, AllTeams Teams) {
+    /**
+     * Main constructor that saves table and teams objects
+     *
+     * @param Table object that holds whole game table
+     * @param Teams object that holds all teams that appears in application
+     */
+    public AddTeam(AllGames Table, AllTeams Teams) {
         initComponents();
         this.table = Table;
         this.teams = Teams;
@@ -165,24 +170,33 @@ public class AddTeam extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Method that close current window and opens menu window
+     *
+     * @param evt event of pushing that button
+     */
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         dispose();
         java.awt.EventQueue.invokeLater(() -> {
-            new OpenWindow(table, teams).setVisible(true);
+            new MainWindow(table, teams).setVisible(true);
         });
     }//GEN-LAST:event_backButtonActionPerformed
 
 
+    
     private void surnameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_surnameFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_surnameFieldActionPerformed
-
-
     private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameFieldActionPerformed
 
-
+    /**
+     * Method that adds a team to the teams and clears text fields or show
+     * announsment that something is wrong
+     *
+     * @param evt event of pushing a button
+     */
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
 
         String name = nameField.getText();
@@ -190,8 +204,6 @@ public class AddTeam extends javax.swing.JFrame {
         String city = cityField.getText();
         String country = countryField.getText();
         String league = leagueField.getText();
-
-
 
         if (name.length() == 0 || surname.length() == 0 || city.length() == 0 || country.length() == 0
                 || league.length() == 0) {
@@ -210,28 +222,16 @@ public class AddTeam extends javax.swing.JFrame {
             jDialog1.setSize(240, 80);
             jDialog1.add(l);
             jDialog1.setVisible(true);
+
+            this.nameField.setText("");
+            this.surnameField.setText("");
+            this.leagueField.setText("");
+            this.countryField.setText("");
+            this.cityField.setText("");
         }
 
     }//GEN-LAST:event_addButtonActionPerformed
 
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddTeam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddTeam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddTeam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddTeam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;

@@ -2,7 +2,7 @@ package pl.polsl.kamil.Controler;
 
 import java.util.Scanner;
 import pl.polsl.kamil.Model.AllTeams;
-import pl.polsl.kamil.Model.PastGames;
+import pl.polsl.kamil.Model.AllGames;
 import pl.polsl.kamil.view.Speaking;
 
 /**

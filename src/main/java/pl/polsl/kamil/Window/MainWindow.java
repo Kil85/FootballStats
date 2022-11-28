@@ -5,18 +5,26 @@
 package pl.polsl.kamil.Window;
 
 import pl.polsl.kamil.Model.AllTeams;
-import pl.polsl.kamil.Model.PastGames;
+import pl.polsl.kamil.Model.AllGames;
 
 /**
+ * Class responsible for showing menu window
  *
- * @author kil85
+ * @author Kamil Skupien
+ * @version 1.0
  */
-public class OpenWindow extends javax.swing.JFrame {
+public class MainWindow extends javax.swing.JFrame {
 
-    private PastGames table;
+    private AllGames table;
     private AllTeams teams;
 
-    public OpenWindow(PastGames Table, AllTeams Teams) {
+    /**
+     * Main constructor that saves table and teams objects
+     *
+     * @param Table object that holds whole game table
+     * @param Teams object that holds all teams that appears in application
+     */
+    public MainWindow(AllGames Table, AllTeams Teams) {
         initComponents();
         this.table = Table;
         this.teams = Teams;
@@ -124,6 +132,11 @@ public class OpenWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Method that close current window and opens addTeam window
+     *
+     * @param evt event of pushing that button
+     */
     private void addTeamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTeamButtonActionPerformed
 
         dispose();
@@ -132,10 +145,20 @@ public class OpenWindow extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_addTeamButtonActionPerformed
 
+    /**
+     * Method that close current window
+     *
+     * @param evt event of pushing that button
+     */
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         dispose();
     }//GEN-LAST:event_exitButtonActionPerformed
 
+    /**
+     * Method that close current window and opens printTeams window
+     *
+     * @param evt event of pushing that button
+     */
     private void printTeamsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printTeamsButtonActionPerformed
 
         dispose();
@@ -145,6 +168,11 @@ public class OpenWindow extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_printTeamsButtonActionPerformed
 
+    /**
+     * Method that close current window and opens printGames window
+     *
+     * @param evt event of pushing that button
+     */
     private void printGamesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printGamesButtonActionPerformed
 
         dispose();
@@ -154,7 +182,11 @@ public class OpenWindow extends javax.swing.JFrame {
         });
 
     }//GEN-LAST:event_printGamesButtonActionPerformed
-
+    /**
+     * Method that close current window and opens addGame window
+     *
+     * @param evt event of pushing that button
+     */
     private void addGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addGameButtonActionPerformed
         dispose();
 
@@ -163,38 +195,6 @@ public class OpenWindow extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_addGameButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(OpenWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(OpenWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(OpenWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(OpenWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(() -> {
-////            new OpenWindow().setVisible(true);
-//        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addGameButton;

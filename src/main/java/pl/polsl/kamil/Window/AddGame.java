@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package pl.polsl.kamil.Window;
 
 import javax.swing.JDialog;
@@ -10,19 +6,25 @@ import javax.swing.SpinnerListModel;
 import javax.swing.SpinnerModel;
 import pl.polsl.kamil.Model.AllTeams;
 import pl.polsl.kamil.Model.Game;
-import pl.polsl.kamil.Model.PastGames;
+import pl.polsl.kamil.Model.AllGames;
 
 /**
- *
- * @author kil85
+ *  Class responsible for showing game adding window
+ * @author Kamil Skupien
+ *  @version 1.0
  */
 public class AddGame extends javax.swing.JFrame {
 
-    private PastGames table;
+    private AllGames table;
     private AllTeams teams;
     private JDialog jDialog1;
 
-    public AddGame(PastGames Table, AllTeams Teams) {
+    /**
+     * Main constructor that saves table and teams objects and creates spinners
+     * @param Table object that holds whole game table
+     * @param Teams object that holds all teams that appears in application
+     */
+    public AddGame(AllGames Table, AllTeams Teams) {
         initComponents();
 
         this.table = Table;
@@ -154,12 +156,17 @@ public class AddGame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+/**
+ * Method that close current window and opens menu window 
+ * @param evt event of pushing that button
+ */
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
 
         dispose();
 
         java.awt.EventQueue.invokeLater(() -> {
-            new OpenWindow(table, teams).setVisible(true);
+            new MainWindow(table, teams).setVisible(true);
         });
 
 
@@ -173,6 +180,10 @@ public class AddGame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_guestScoreFieldActionPerformed
 
+    /**
+     * Method that adds a game to the table or show announsment that something is wrong
+     * @param evt event of pushing a button
+     */
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
 
         if (hostScoreField.getValue() == null || guestScoreField.getValue() == null) {
@@ -197,38 +208,19 @@ public class AddGame extends javax.swing.JFrame {
                 String hName = hostSpinner.getValue().toString();
                 String gName = guestSpinner.getValue().toString();
 
+                this.jDialog1 = new JDialog(this, "OK");
+                JLabel l = new JLabel("     Mecz dodany poprawnie");
+                jDialog1.setSize(240, 80);
+                jDialog1.add(l);
+                jDialog1.setVisible(true);
+
                 Game tmp = new Game(this.teams.GetTeam(hName), this.teams.GetTeam(gName), hScore, gScore);
                 table.AddGame(tmp);
 
             }
         }
-
-
     }//GEN-LAST:event_addButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AddGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AddGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AddGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AddGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;

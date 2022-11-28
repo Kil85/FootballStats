@@ -4,24 +4,39 @@
  */
 package pl.polsl.kamil.Window;
 
+import javax.swing.JTable;
 import pl.polsl.kamil.Model.AllTeams;
-import pl.polsl.kamil.Model.PastGames;
+import pl.polsl.kamil.Model.AllGames;
 
 /**
+ * Class responsible for showing game adding window
  *
- * @author kil85
- * 
+ * @author Kamil Skupien
+ * @version 1.0
  */
 public class PrintGames extends javax.swing.JFrame {
 
-    private PastGames table;
+    private AllGames table;
     private AllTeams teams;
 
-    public PrintGames(PastGames Table, AllTeams Teams) {
+    /**
+     * Main constructor that saves table and teams objects and creates jTable
+     *
+     * @param Table object that holds whole game table
+     * @param Teams object that holds all teams that appears in application
+     */
+    public PrintGames(AllGames Table, AllTeams Teams) {
         initComponents();
 
         this.table = Table;
         this.teams = Teams;
+
+        String[] columnsNames = {"Host", "Host score", "Guest score", "Guest"};
+
+        jTable1 = new JTable(this.table.TableToArray(), columnsNames);
+        jTable1.setEnabled(false);
+
+        jScrollPane1.setViewportView(this.jTable1);
     }
 
     @SuppressWarnings("unchecked")
@@ -44,7 +59,15 @@ public class PrintGames extends javax.swing.JFrame {
             new String [] {
                 "Host", "Host Score", "Guest Score", "Guest"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setHeaderValue("Host");
@@ -64,10 +87,10 @@ public class PrintGames extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(backButton))
@@ -84,38 +107,22 @@ public class PrintGames extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Method that close current window and opens menu window
+     *
+     * @param evt event of pushing that button
+     */
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-       
+
         dispose();
 
         java.awt.EventQueue.invokeLater(() -> {
-            new OpenWindow(table, teams).setVisible(true);
+            new MainWindow(table, teams).setVisible(true);
         });
 
 
     }//GEN-LAST:event_backButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PrintGames.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PrintGames.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PrintGames.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PrintGames.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;

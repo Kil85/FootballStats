@@ -3,7 +3,7 @@ package pl.polsl.kamil.Controler;
 import pl.polsl.kamil.Controler.Listening;
 import pl.polsl.kamil.Model.AllTeams;
 import pl.polsl.kamil.Model.Game;
-import pl.polsl.kamil.Model.PastGames;
+import pl.polsl.kamil.Model.AllGames;
 import pl.polsl.kamil.Model.Team;
 import pl.polsl.kamil.view.Speaking;
 
@@ -23,7 +23,7 @@ public class Menu {
      * @param Table database of Games in applications
      * @throws pl.polsl.kamil.Controler.MyException My own exception class
      */
-    public void M(int Choise, AllTeams Teams, PastGames Table) throws MyException {
+    public void M(int Choise, AllTeams Teams, AllGames Table) throws MyException {
         Speaking spk = new Speaking();
         Listening list = new Listening();
         switch (Choise) {

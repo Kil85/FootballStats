@@ -14,14 +14,14 @@ import org.junit.jupiter.params.provider.CsvSource;
 public class PastGamesTests {
 
 
-    private PastGames GameTable;//private PastGames object that tests work on
+    private AllGames GameTable;//private AllGames object that tests work on
 
     /**
      * Method that initalize GameTable before each test
      */
     @BeforeEach
     public void setUp() {
-        GameTable = new PastGames();
+        GameTable = new AllGames();
     }
 
     /**

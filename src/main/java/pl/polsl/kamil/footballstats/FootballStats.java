@@ -4,9 +4,9 @@ import pl.polsl.kamil.Controler.Listening;
 import pl.polsl.kamil.Controler.Menu;
 import pl.polsl.kamil.Controler.MyException;
 import pl.polsl.kamil.Model.AllTeams;
-import pl.polsl.kamil.Model.PastGames;
+import pl.polsl.kamil.Model.AllGames;
 import pl.polsl.kamil.Model.Team;
-import pl.polsl.kamil.Window.OpenWindow;
+import pl.polsl.kamil.Window.MainWindow;
 
 /**
  * Main class of whole application
@@ -24,7 +24,7 @@ public class FootballStats {// Wiekszosc funkcji trzeba dokonczyc i polaczyc z m
      */
     public static void main(String[] args) throws MyException {
         Listening listen = new Listening();
-        PastGames Table = new PastGames();
+        AllGames Table = new AllGames();
         AllTeams Teams = new AllTeams();
         Menu menu = new Menu();
         int choice = 4;
@@ -53,7 +53,7 @@ public class FootballStats {// Wiekszosc funkcji trzeba dokonczyc i polaczyc z m
 //            choice = listen.Interaction();
 //       } while (choice != 0);
         java.awt.EventQueue.invokeLater(() -> {
-            new OpenWindow(Table, Teams).setVisible(true);
+            new MainWindow(Table, Teams).setVisible(true);
         });
     }
 }

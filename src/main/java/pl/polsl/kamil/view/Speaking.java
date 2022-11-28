@@ -4,7 +4,7 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 import pl.polsl.kamil.Model.AllTeams;
 import pl.polsl.kamil.Model.Game;
-import pl.polsl.kamil.Model.PastGames;
+import pl.polsl.kamil.Model.AllGames;
 import pl.polsl.kamil.Model.Team;
 
 /**
@@ -79,7 +79,7 @@ public class Speaking {
      *
      * @param Table object that remembers all games included in application
      */
-    public void PrintAllGames(PastGames Table) {
+    public void PrintAllGames(AllGames Table) {
         int index = 1;
         for (Game g : Table.GetGames()) {
             System.out.println(index + ". " + g.GetFirstT() + " " + g.GetFirstS()

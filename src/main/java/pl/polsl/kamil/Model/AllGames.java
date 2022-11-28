@@ -10,21 +10,23 @@ import pl.polsl.kamil.view.Speaking;
  * @author Kamil Skupien
  * @version 1.0
  */
-public class PastGames {
-Vector<Game> Games;
-  //  Game Games[]; // array of Game class's objects
+public class AllGames {
+
+    Vector<Game> Games;
+    //  Game Games[]; // array of Game class's objects
     int Free; // number of objects in Games array
     int Full; // maximum lenth of Games array
 
     /**
      * Constructor of PastGames class
      */
-    public PastGames() {
+    public AllGames() {
         Full = 10;
-     //   Games = new Game[10];
-        Games= new Vector(10);
+        //   Games = new Game[10];
+        Games = new Vector(10);
         Free = 0;
     }
+
     /**
      * Gets number of objects in Game array
      *
@@ -42,6 +44,7 @@ Vector<Game> Games;
     public Vector< Game> GetGames() {
         return this.Games;
     }
+
     /**
      * Method that chceck if there is a free space in Games array and if it is
      * add object G
@@ -57,7 +60,35 @@ Vector<Game> Games;
         }
         //this.Games[this.Free] = G;
         this.Games.add(G);
-       // this.Games.elementAt(this.Free);
+        // this.Games.elementAt(this.Free);
         this.Free++;
     }
+
+    public String[][] TableToArray() {
+
+        String[][] result = new String[Free][4];
+
+        int columsIterator = 0;
+
+        for (Game g : this.Games) {
+            int rowsIterator = 0;
+
+            result[columsIterator][rowsIterator] = g.GetFirstT();
+            rowsIterator++;
+
+            result[columsIterator][rowsIterator] = Integer.toString(g.GetFirstS());
+            rowsIterator++;
+
+            result[columsIterator][rowsIterator] = Integer.toString(g.GetSecondS());
+            rowsIterator++;
+            
+            result[columsIterator][rowsIterator] = g.GetSecondT();
+            rowsIterator++;
+            
+            columsIterator++;
+        }
+
+        return result;
+    }
+
 }
